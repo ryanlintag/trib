@@ -1,10 +1,12 @@
 using identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSingleton< TokenGenerator>();
+builder.Services.AddSingleton<TokenGenerator>();
 
 var app = builder.Build();
 
@@ -16,7 +18,6 @@ app.MapPost("/signin", (LoginInputModel model, TokenGenerator tokenGenerator) =>
     };
 
 });
-
 
 app.Run();
 
