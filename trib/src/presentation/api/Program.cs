@@ -1,3 +1,5 @@
+using Application;
+using Carter;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
@@ -22,6 +24,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+builder.Services.AddApplication();
+
+builder.Services.AddCarter();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -34,10 +40,14 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+
+app.MapCarter();
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
 
 app.MapGet("/secret", () => { 
     return "This is a secret message";
