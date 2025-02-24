@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddOpenApi();
 
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -22,7 +24,16 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 var app = builder.Build();
 
-builder.Services.AddEndpointsApiExplorer();
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+    app.MapScalarApiReference(options => {
+        options.WithTitle("Trib API")
+                .WithTheme(ScalarTheme.Mars)
+                .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.AsyncHttp);
+    });
+}
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
