@@ -1,4 +1,5 @@
 using identity;
+using Microsoft.AspNetCore.Http.Features;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 
 builder.Services.AddSingleton<TokenGenerator>();
+
+builder.Services.AddProblemDetails(options =>
+{
+    options.CustomizeProblemDetails = ctx =>
+    {
+        ctx.ProblemDetails.Instance = $"{ctx.HttpContext.Request.Method} {ctx.HttpContext.Request.Path}";
+        ctx.ProblemDetails.Extensions.TryAdd("requestId", ctx.HttpContext.TraceIdentifier);
+        var activity = ctx.HttpContext.Features.Get<IHttpActivityFeature>()?.Activity;
+        ctx.ProblemDetails.Extensions.TryAdd("traceId", activity?.Id);
+    };
+});
+builder.Services.AddExceptionHandler<ProblemExceptionHandler>();
 
 var app = builder.Build();
 
