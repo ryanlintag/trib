@@ -35,6 +35,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TribApp.Web.Client", "src\p
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "identity", "src\presentation\identity\identity.csproj", "{B5B15D3D-9A78-31E6-7F33-DBF47C9FA55F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cross_functional", "cross_functional", "{3918344B-D520-4C48-BDAC-87537FC6A5A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "common", "src\cross_functional\common\common.csproj", "{DCEF5B25-A0B7-4F8D-932C-4E986D57FAA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +85,10 @@ Global
 		{B5B15D3D-9A78-31E6-7F33-DBF47C9FA55F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5B15D3D-9A78-31E6-7F33-DBF47C9FA55F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5B15D3D-9A78-31E6-7F33-DBF47C9FA55F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCEF5B25-A0B7-4F8D-932C-4E986D57FAA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCEF5B25-A0B7-4F8D-932C-4E986D57FAA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCEF5B25-A0B7-4F8D-932C-4E986D57FAA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCEF5B25-A0B7-4F8D-932C-4E986D57FAA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +108,8 @@ Global
 		{9E412D81-8E18-431E-87A4-1C73AEC99E36} = {4D3D423E-A12B-4249-8E90-0264135D7819}
 		{1F3444DE-AB4C-45A8-B57B-1FB62B178FC6} = {4D3D423E-A12B-4249-8E90-0264135D7819}
 		{B5B15D3D-9A78-31E6-7F33-DBF47C9FA55F} = {4D3D423E-A12B-4249-8E90-0264135D7819}
+		{3918344B-D520-4C48-BDAC-87537FC6A5A6} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{DCEF5B25-A0B7-4F8D-932C-4E986D57FAA7} = {3918344B-D520-4C48-BDAC-87537FC6A5A6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {403FB81E-658F-42BA-9CAB-584C9E9F656E}

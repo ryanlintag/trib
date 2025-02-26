@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\core\Application\Application\Application.csproj" />
+    <ProjectReference Include="..\..\cross_functional\common\common.csproj" />
   </ItemGroup>
 
 </Project>
